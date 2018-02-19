@@ -1,15 +1,16 @@
 var express = require('express')
 var bodyParser = require('body-parser')
+var cors = require('cors')
 var server = express()
 var port = 3000
 
+server.use(cors())
 server.use(bodyParser.json())
 server.use(bodyParser.urlencoded({ extended: true }))
 
-
 // THE CODE ABOVE IS ALWAYS THE SAME ^^^^
 
-
+//region CATS
 var cats = []
 var id = 0
 function Cat(config) {
@@ -63,7 +64,7 @@ server.put('/api/cats/:id', (req, res, next) => {
 
 
 })
-
+//endregion
 
 
 
